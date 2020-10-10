@@ -1,0 +1,151 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"><title>Document</title><style>*{
+      margin: 0px;
+      padding: 0px;
+    }
+    ul,ol,li{
+      list-style-type:none;
+    }
+    a{
+      text-decoration:none;
+    }
+    html,body{
+      height: 100%;
+    }
+    head{
+      width:100%;
+    }
+    .headbox{
+      width:1000px;
+      height:60px;
+      background:#ffffff;
+      margin:0 auto;
+    }
+    .headbox .banner{
+      width:250px;
+      height:60px;
+      background:url(images/banner.png) no-repeat;
+      background-size:100% 100%;
+      float:left;
+    }
+    .headbox a{
+      display:block;
+      float:right;
+     margin-top:40px;
+      font-size:12px;
+      color:#aaaaaa;
+    }
+    .headbox a:hover{
+      text-decoration:underline;
+    }
+    /* register */
+    .containerbox{
+      width:100%;
+      border-bottom:1px solid #aaaaaa;
+    }
+    .container{
+      width:1000px;
+      min-height:500px;
+      background:#ffffff;
+      display: flex;
+      justify-content:center;
+      align-items:center;
+    }
+    #register{
+      width: 1000px;
+      height:500px;
+      border:none;
+      display:flex;
+      justify-content:center;
+    }
+    #register .panel-body .form-group{
+      display:flex;
+      margin-top:20px;
+    }
+    #register .panel-body .form-group label{
+      text-align:center;
+      line-height:29px;
+    }
+    #register .panel-body .form-group .form-control{
+      width:400px;
+    }
+    #register .panel-body a{
+      display:block;
+      margin-top:5px;
+      margin-left:312px;
+    }
+    .alert{
+      margin: 0px 0px 10px 0px;
+      padding: 5px;
+      text-align: center;
+      display: none;
+    }
+    #btn1{
+      width:200px;
+      height:40px;
+      clear:right;
+      margin-left:145px;
+      background:red;
+      border-radius:20px;
+    }
+
+    /* footer */
+    footer{
+      width:100%;
+    }
+    footer .footerbox{
+      width:806px;
+      height:20px;
+      margin:0 auto;
+      background:#ffffff;
+      text-align:center;
+    }
+    footer .footerbox ul{
+      margin-top:50px;
+    }
+    footer .footerbox ul li{
+      float:left;
+    }
+    footer .footerbox ul li a{
+      display:block;
+      font-size:12px;
+      border-right:1px solid #aaaaaa;
+      margin-right:20px;
+      padding-right:20px;
+      color:#aaaaaa;
+    }
+    footer .footerbox ul li a:hover{
+      color:red;
+    }</style></head><body><!-- head --><head><div class="headbox"><div class="banner"></div><a href="#">"登陆界面"改进意见</a></div></head><!-- 登录窗口 --><div class="newuser"><div class="newusrebox"><span></span></div></div><div class="containerbox"><div class="container"><div class="panel panel-primary" id="register"><div class="panel-body"><div class="form-group"><label for="username">手机号码</label> <input type="text" name="username" placeholder="手机号码" class="form-control"> <span></span></div><div class="form-group"><label for="password">登录密码</label> <input type="text" name="password" placeholder="登录密码" class="form-control"></div><div class="form-group"><label for="repassword">确认密码</label> <input type="text" name="repassword" placeholder="确认密码" class="form-control"></div><div class="alert alert-danger" role="alert">...</div><button class="btn btn-primary" id="btn1">立即注册</button></div></div></div></div><footer><div class="footerbox"><ul><li><a href="">公司简介</a></li><li><a href="">诚聘英才</a></li><li><a href="">网站联盟</a></li><li><a href="">当当招商</a></li><li><a href="">机构销售</a></li><li><a href="">手机当当</a></li><li><a href="">官方Blog</a></li><li><a href="">知识产权</a></li><li><a href="">热词搜索</a></li></ul></div></footer></body><script type="module">import ajax from './ajax.js';
+  var oBtn = document.getElementById("btn1");
+  var aInput = document.querySelectorAll(".form-group input");
+  var oAlert = document.querySelector(".alert");
+  oBtn.onclick = function(){
+    ajax({
+      type: 'post',
+      url: 'register.php',
+      data: {
+        username: aInput[0].value,
+        password: aInput[1].value,
+        repassword: aInput[2].value,
+        createTime: new Date().getTime()
+      },
+      success: function(msg){
+        // console.log(msg);
+        var obj = JSON.parse(msg); //JSON.parse (<anonymous>) 返回的字符串不是json格式。
+        if(obj.code){
+          oAlert.className = 'alert alert-danger';
+        }else{
+          oAlert.className = 'alert alert-success';
+          jump();
+        }
+        oAlert.style.display = 'block';
+        oAlert.innerHTML = obj.msg;
+      },
+      error: function(msg){
+        console.log(msg);
+      }
+    })
+  }
+  function jump(){
+    window.location.href = "http://localhost/dangdang/login.html";
+  }</script></html>

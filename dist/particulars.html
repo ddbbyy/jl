@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Document</title><link rel="stylesheet" href="css/particulars.css"></head><script src="./js/jquery-1.10.1.min.js"></script><script>$(function(){
+    $(".small-img").mouseenter(function(){
+      $(".mark,.big-img").show();
+    }).mouseleave(function(){
+      $(".mark,.big-img").hide();
+    }).mousemove(function(ev){
+      var l = ev.clientX - $(this).offset().left - 100;
+      var t = ev.clientY - $(this).offset().top - 100;
+      //限制出界
+      l = Math.max(0, l);
+      l = Math.min(546, l);
+      t = Math.max(0, t);
+      t = Math.min(529, t);
+
+      $(".mark").css({
+        left: l,
+        top: t
+      })
+      $(".big-img img").css({
+        left: -2 * l,
+        top: -2 * t
+      })
+    })
+  })</script><body><!-- header --><div id="header"><ul><li><a href="http://localhost:8888/">首页</a></li><li>新品上市</li><li>金立K3</li><li>金立K6</li><li>金立K5</li><li>金立K3</li><li>金立F6</li></ul></div><!-- list --><div id="list"><ul class="nm1"><li>手机</li><li>></li><li>手机</li><li>></li><li>手机</li><li>></li><li>金立(goosk)</li><li>></li><li>金立</li></ul><ul class="nm2"><li>金立自营</li><li>联系客服</li><li>关注店铺微信</li></ul></div><!-- 放大镜 --><div class="small-img"><img src="//img12.360buyimg.com/n1/s450x450_jfs/t1/62849/27/10443/388659/5d7f070bE3cf87ded/2cf42cd70a5413aa.jpg" alt=""><div class="mark"></div></div><div class="big-img"><img src="//img12.360buyimg.com/n1/s450x450_jfs/t1/62849/27/10443/388659/5d7f070bE3cf87ded/2cf42cd70a5413aa.jpg" alt=""></div><div id="list2"><ul><li><img src="./images/jl012.png" alt=""></li><li><img src="./images/jl013.png" alt=""></li><li><img src="./images/jl014.png" alt=""></li><li><img src="./images/jl015.png" alt=""></li><li><img src="./images/jl016.png" alt=""></li></ul></div><!-- 左边 --><div id="title">金立 Gionee K3 6GB+128GB 极光蓝 5000mAh大电池 后置双摄 6.2英寸<br>水滴屏 微信8开 全网通4G 双卡双待</div><div id="price"><p class="price1"><span>京东价</span><span>￥799.00</span><span>降价通知</span></p><p class="price2"><span>促&nbsp;&nbsp;&nbsp;销</span><span>赠品</span><span>(赠完为止)</span></p></div><!-- 数量 --><div id="amount"><div>2</div><p><a href="#">+</a></p><p><a href="#">_</a></p></div><!-- 购物 --><div id="shopping"><a href="">加入购物车</a></div></body></html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"><title>Document</title><style>*{
+      margin: 0px;
+      padding: 0px;
+    }
+    a{
+      text-decoration:none;
+    }
+    ol,ul,li{
+      list-style:none;
+    }
+    html,body{
+      height: 100%;
+    }
+    #picture{
+      position: relative;
+      top:700px;
+      left:100px;
+      z-index: 1;
+    }
+
+    head{
+      width:100%;
+    }
+    .headbox{
+      width:1200px;
+      height:60px;
+      background:#ffffff;
+      margin:0 auto;
+    }
+    .headbox .banner{
+      width:250px;
+      height:60px;
+      background:url(images/banner.png) no-repeat;
+      background-size:100% 100%;
+      float:left;
+    }
+    .headbox a{
+      display:block;
+      float:right;
+     margin-top:40px;
+      font-size:12px;
+      color:#aaaaaa;
+    }
+    .headbox a:hover{
+      text-decoration:underline;
+    }
+    .containerbox{
+      width:100%;
+    }
+    .container{
+      width:1200px;
+      min-height:500px;
+      background:#ffffff;
+      display: flex;
+      justify-content:space-between;
+      position:relative;
+    }
+    .container .bigimg{
+      width:2500px;
+      height:590px;
+      background:url(images/bigimg.png) no-repeat center center;
+    }
+    #login{
+      width: 400px;
+      height:300px;
+      position:absolute;
+      right:0;
+      bottom:50px;
+      border:1px solid #aaaaaa;
+    }
+    #login .panel-heading{
+      background:#ffffff;
+      color:black;
+      border:none;
+      font-size:20px;
+    }
+    #login .panel-body a{
+      display:block;
+      margin-top:5px;
+      margin-left:312px;
+    }
+    .alert{
+      margin: 0px 0px 10px 0px;
+      padding: 5px;
+      text-align: center;
+      display: none;
+    }
+    #btn1{
+      background:red;
+    }
+    /* footer */
+    footer{
+      width:100%;
+    }
+    footer .footerbox{
+      width:806px;
+      height:20px;
+      margin:0 auto;
+      background:#ffffff;
+      text-align:center;
+    }
+    footer .footerbox ul{
+      margin-top:50px;
+    }
+    footer .footerbox ul li{
+      float:left;
+    }
+    footer .footerbox ul li a{
+      display:block;
+      font-size:12px;
+      border-right:1px solid #aaaaaa;
+      margin-right:20px;
+      padding-right:20px;
+      color:#aaaaaa;
+    }
+    footer .footerbox ul li a:hover{
+      color:red;
+    }</style></head><body><!-- head --><div id="bos"><div id="picture"><img src="./images/jl011.jpg" alt=""></div><head><div class="headbox"><div class="banner"></div><a href="#">"登陆界面"改进意见</a></div></head><!-- 登录窗口 --><div class="containerbox"><div class="container"><div class="bigimg"></div><div class="panel panel-primary" id="login"><div class="panel-heading">密码登陆</div><div class="panel-body"><div class="form-group"><label for="username"></label> <input type="text" name="username" placeholder="邮箱/昵称/手机号码" class="form-control"></div><div class="form-group"><label for="password"></label> <input type="text" name="password" placeholder="密码" class="form-control"></div><div class="alert alert-danger" role="alert">...</div><button class="btn btn-primary pull-right form-control" id="btn1">登录</button> <a href="http://localhost/dangdang/register.html">立即注册</a></div></div></div></div><footer><div class="footerbox"><ul><li><a href="">公司简介</a></li><li><a href="">诚聘英才</a></li><li><a href="">网站联盟</a></li><li><a href="">当当招商</a></li><li><a href="">机构销售</a></li><li><a href="">手机当当</a></li><li><a href="">官方Blog</a></li><li><a href="">知识产权</a></li><li><a href="">热词搜索</a></li></ul></div></footer></div></body><script type="module">import ajax from './ajax.js';
+  var oBtn = document.getElementById("btn1");
+  var aInput = document.querySelectorAll(".form-group input");
+  var oAlert = document.querySelector(".alert");
+  oBtn.onclick = function(){
+    ajax({
+      type: 'post',
+      url: 'login.php',
+      data: {
+        username: aInput[0].value,
+        password: aInput[1].value,
+      },
+      success: function(msg){
+        // console.log(msg);
+        var obj = JSON.parse(msg); //JSON.parse (<anonymous>) 返回的字符串不是json格式。
+        if(obj.code){
+          oAlert.className = 'alert alert-danger';
+        }else{
+          oAlert.className = 'alert alert-success';
+          jump();
+        }
+        oAlert.style.display = 'block';
+        oAlert.innerHTML = obj.msg;
+      },
+      error: function(msg){
+        console.log(msg);
+      }
+    })
+  }
+  function jump(){
+      window.location.href = "http://localhost:8888";
+  }</script></html>

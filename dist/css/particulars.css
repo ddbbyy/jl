@@ -1,0 +1,189 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+a {
+  text-decoration: none; }
+
+li {
+  list-style-type: none; }
+
+#header {
+  width: 1280px;
+  height: 40px;
+  background: #ba1423;
+  overflow: hidden; }
+  #header ul {
+    width: 700px;
+    margin: 7px 0 0 100px; }
+    #header ul li {
+      float: left;
+      margin-right: 49px;
+      font-size: 16px;
+      color: #ffffff; }
+      #header ul li a {
+        font-size: 16px;
+        color: #ffffff; }
+
+#list {
+  width: 1280px;
+  height: 54px;
+  background: #f2f2f2; }
+  #list ul {
+    color: #666666; }
+  #list .nm1 {
+    margin-left: 139px; }
+    #list .nm1 li {
+      float: left;
+      margin: 20px 13px 0 0;
+      font-size: 12px; }
+      #list .nm1 li li:nth-of-type(7) {
+        width: 148px;
+        height: 24px;
+        background-color: #ffffff; }
+  #list .nm2 {
+    margin-left: 584px; }
+    #list .nm2 li {
+      float: left;
+      margin: 20px 13px 0 0;
+      font-size: 12px; }
+
+.small-img {
+  width: 546px;
+  height: 544px;
+  position: relative;
+  top: 12px;
+  left: 50px;
+  border: 1px solid; }
+  .small-img img {
+    width: 546px;
+    height: 544px; }
+  .small-img .mark {
+    width: 200px;
+    height: 200px;
+    background: red;
+    opacity: 0.5;
+    position: absolute;
+    top: 0px;
+    display: none; }
+
+.big-img {
+  width: 273px;
+  height: 272px;
+  position: relative;
+  z-index: 1;
+  top: -412px;
+  left: 646px;
+  border: 1px solid;
+  overflow: hidden;
+  display: none; }
+  .big-img img {
+    width: 792px;
+    height: 788px;
+    position: absolute; }
+
+#list2 ul {
+  position: absolute;
+  top: 690px;
+  left: 20px;
+  width: 1000px; }
+  #list2 ul li {
+    float: left;
+    width: 61px;
+    height: 91px;
+    margin-left: 80px;
+    border: 1px solid black; }
+    #list2 ul li li:hover {
+      border: 1px solid red; }
+    #list2 ul li img {
+      width: 61px;
+      height: 91px; }
+
+#title {
+  position: absolute;
+  width: 621px;
+  height: 49px;
+  top: 100px;
+  left: 700px;
+  font-size: 10px;
+  color: #666666;
+  line-height: 16px; }
+
+#price {
+  width: 600px;
+  height: 96px;
+  background: #f3f3f3;
+  position: absolute;
+  left: 650px;
+  top: 100px;
+  overflow: hidden; }
+  #price p {
+    margin-left: 8px; }
+  #price .price1 {
+    margin-bottom: 20px;
+    margin-top: 10px; }
+    #price .price1 span {
+      margin-right: 22px; }
+    #price .price1 span:nth-of-type(1) {
+      font-size: 5px; }
+    #price .price1 span:nth-of-type(2) {
+      color: red; }
+    #price .price1 span:nth-of-type(3) {
+      font-size: 5px; }
+  #price .price2 span {
+    margin-right: 22px; }
+  #price .price2 span:nth-of-type(1) {
+    font-size: 5px; }
+  #price .price2 span:nth-of-type(2) {
+    width: 10px;
+    height: 10px;
+    font-size: 5px;
+    border: 1px solid red; }
+  #price .price2 span:nth-of-type(3) {
+    font-size: 5px;
+    color: #999999; }
+
+#amount {
+  width: 68px;
+  height: 53px;
+  border: 1px solid black;
+  position: absolute;
+  top: 400px;
+  left: 600px; }
+  #amount p {
+    width: 20px;
+    height: 26px;
+    border: 1px solid fuchsia;
+    position: absolute;
+    line-height: 26px;
+    text-align: center; }
+  #amount p:nth-of-type(1) {
+    left: 47px;
+    top: -2px; }
+  #amount p:nth-of-type(2) {
+    left: 47px;
+    top: 25px; }
+  #amount div {
+    width: 45px;
+    height: 52px;
+    text-align: center;
+    line-height: 45px; }
+
+#shopping {
+  width: 300px;
+  height: 100px;
+  background: red;
+  position: absolute;
+  left: 700px;
+  top: 380px;
+  font-size: 35px;
+  text-align: center;
+  line-height: 100px;
+  color: #ffffff; }
